@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AmsalemLogic3_1", "AmsalemLogic3_1\AmsalemLogic3_1.vbproj", "{0206E184-487C-40BF-AF03-997C2E10CC61}"
 EndProject
@@ -12,6 +12,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amsalem.Types", "Amsalem.Types\Amsalem.Types.csproj", "{8BF7F0CD-2309-4B03-BA0D-B67CCCF1B424}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmsalemLogic.Tests", "AmsalemLogic.Tests\AmsalemLogic.Tests.csproj", "{DDBED2D5-D3F0-4732-9777-D000068E6EEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E0ADBE16-0F1A-488D-BCF4-E3DD0DCA3FCC}"
+	ProjectSection(SolutionItems) = preProject
+		IMG-20170307-WA0024.png = IMG-20170307-WA0024.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

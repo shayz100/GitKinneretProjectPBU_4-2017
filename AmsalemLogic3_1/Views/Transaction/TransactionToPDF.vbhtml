@@ -83,6 +83,7 @@ End Code
             <div class="row">
                 <div class="col1 col-md-3">For:</div>
                 <div class="col2 col-md-5">David Cohan, #TripNumber</div>
+                <div class="col-md-4 "><img src="https://www.bcu.com.au/images/Classic_front-(JUNE).png" class="img float-xs-right" width="350" height="380"/></div>
 
             </div>
 
