@@ -22,7 +22,24 @@ Namespace Controllers
 
         End Function
 
-        Function TransactionToPDF() As ActionResult
+        Function NewForm() As ActionResult
+            Dim user = ClassUsers.GetCurrentUser()
+            ViewBag.user = user
+            ViewBag.trip = Nothing
+            Return View()
+        End Function
+
+        Function Create(transaction As PaidByUsTransaction) As ActionResult
+            'TODO
+            Dim handler = New PaidByUsHandler()
+            Dim user = ClassUsers.GetCurrentUser()
+            Dim rop = handler.CreateNewTransaction(transaction, user)
+            Return Json(rop)
+
+        End Function
+
+        Function TransactionToPDF(id As String) As ActionResult
+            ViewBag.TransactionId = id
             Return View()
 
         End Function

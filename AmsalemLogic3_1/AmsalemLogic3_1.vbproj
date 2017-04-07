@@ -540,7 +540,7 @@
     <Content Include="Views\Shared\_LoginPartial.vbhtml" />
     <Content Include="Views\CreditCard\CreditCardTable.vbhtml" />
     <Content Include="Views\CreditCard\Unauthorized.vbhtml" />
-    <Content Include="Views\Transaction\TransactionTable.vbhtml" />
+    <Content Include="Views\Transaction\NewForm.vbhtml" />
     <Content Include="Views\Transaction\TransactionToPDF.vbhtml" />
   </ItemGroup>
   <ItemGroup>

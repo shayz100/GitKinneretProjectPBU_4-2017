@@ -1,4 +1,16 @@
-﻿ 
+﻿ @Code
+     ViewData("Title") = "View"
+     Dim trip = ViewBag.trip
+     Dim BackOfficeCompany = String.Empty
+     If (trip IsNot Nothing) Then
+         BackOfficeCompany = trip.AxCompany
+     Else
+         'BackOfficeCompany = DirectCast(ViewBag.user, ClassUsers).AxCompany
+         BackOfficeCompany = ViewBag.user.AxCompany
+     End If
+End Code
+
+ViewBag.
 
 <!doctype html>
 <html>

@@ -31,6 +31,21 @@ namespace AmsalemLogic.NewLogic.Classes
             return cards;
         }
 
+        public ResultOfOperation CreateNewTransaction(PaidByUsTransaction transaction, ClassUsers user)
+        {
+            //TODO
+            var rop = new ResultOfOperation();
+            rop.Message = "Success";
+            return rop;
+        }
+
+        public PaidByUsTransaction RetrieveTransactionById(int id, bool activeOnly)
+        {
+            //TODO
+            var pbut = new PaidByUsTransaction();
+            return pbut;
+        }
+
 
         //orena - the function to use
         //public void CreateNewTransaction(PaidByUsTransaction transaction, ClassUsers user)
