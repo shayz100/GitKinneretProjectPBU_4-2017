@@ -45,7 +45,7 @@ Namespace Controllers
             transaction.Item = "LepTop"
             transaction.OriginalAmount = 2050
             ViewBag.Transaction = transaction
-            Return View(ViewBag)
+            Return View()
         End Function
 
 

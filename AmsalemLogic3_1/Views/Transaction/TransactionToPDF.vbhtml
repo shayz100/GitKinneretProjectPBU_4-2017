@@ -1,11 +1,4 @@
-﻿@ModelType AmsalemLogic.NewLogic.Classes.PaidByUsTransaction
-
-@Code
-    ViewBag("Title") = "TransactionToPDF"
-End Code
-
-
-ViewBag.
+﻿
 
 <!DOCTYPE html>
 <html>
@@ -71,7 +64,7 @@ ViewBag.
     <div class="container ">
             <div class="row">
                 <div class="col1 col-md-3">To:</div>
-                <div class="col2 col-md-5">@ViewBag.transaction.For</div>
+                <div class="col2 col-md-5">@ViewBag.Transaction.For</div>
             </div>
 
             <div class="row">

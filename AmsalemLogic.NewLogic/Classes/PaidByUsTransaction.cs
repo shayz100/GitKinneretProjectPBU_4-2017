@@ -26,7 +26,5 @@ namespace AmsalemLogic.NewLogic.Classes
         public int BillingAmount { get; set; }
         public string BillingCurrencyCode { get; set; }
 
-
-
     }
 }
