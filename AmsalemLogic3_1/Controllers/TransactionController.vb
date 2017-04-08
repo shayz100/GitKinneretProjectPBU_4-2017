@@ -35,13 +35,17 @@ Namespace Controllers
             Dim user = ClassUsers.GetCurrentUser()
             Dim rop = handler.CreateNewTransaction(transaction, user)
             Return Json(rop)
-
         End Function
 
         Function TransactionToPDF(id As String) As ActionResult
-            ViewBag.TransactionId = id
-            Return View()
-
+            'ViewBag.TransactionId = id
+            Dim transaction = New PaidByUsTransaction()
+            transaction.OriginalCurrencyCode = "USD"
+            transaction.For = "Shay zohar"
+            transaction.Item = "LepTop"
+            transaction.OriginalAmount = 2050
+            ViewBag.Transaction = transaction
+            Return View(ViewBag)
         End Function
 
 

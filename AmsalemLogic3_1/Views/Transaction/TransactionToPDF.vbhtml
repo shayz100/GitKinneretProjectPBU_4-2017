@@ -1,7 +1,11 @@
-﻿@Code
-    ViewData("Title") = "TransactionToPDF"
+﻿@ModelType AmsalemLogic.NewLogic.Classes.PaidByUsTransaction
+
+@Code
+    ViewBag("Title") = "TransactionToPDF"
 End Code
 
+
+ViewBag.
 
 <!DOCTYPE html>
 <html>
@@ -57,10 +61,7 @@ End Code
                 <div class="col-md-2 "><button1 type="submit" class="btn btn-primary" >Send PDF</button1></div>
                 <div class="col-md-2 "><button2 type="submit" class="btn btn-primary">Switch Card</button2></div>
                 <div class="col-md-5"><label class="text-center" >Transaction Details</label> </div>
-                <div class="col-md-3 "><img src="http://www.amsalem.com/wp-content/uploads/2016/12/logo_268_81.png" class="img-fluid float-xs-right" /></div>
-                    
-
-
+                <div class="col-md-3 "><img src="http://www.amsalem.com/wp-content/uploads/2016/12/logo_268_81.png" class="img-fluid float-xs-right" /></div>                    
                 </div>
         </form>
     </div>
@@ -68,30 +69,25 @@ End Code
 
 
     <div class="container ">
-
             <div class="row">
                 <div class="col1 col-md-3">To:</div>
-                <div class="col2 col-md-5">Taj Mahal Palace</div>
-
+                <div class="col2 col-md-5">@ViewBag.transaction.For</div>
             </div>
 
             <div class="row">
                 <div class="col1 col-md-8">We authorize credit card billing with the following details:</div>
-
             </div>
 
             <div class="row">
                 <div class="col1 col-md-3">For:</div>
                 <div class="col2 col-md-5">David Cohan, #TripNumber</div>
                 <div class="col-md-4 "><img src="https://www.bcu.com.au/images/Classic_front-(JUNE).png" class="img float-xs-right" width="350" height="380"/></div>
-
             </div>
 
 
             <div class="row">
                 <div class="col1 col-md-3">For commodity:</div>
                 <div class="col2 col-md-6">Hotel Room, From 24.3.2017 To 27.3.2017</div>
-
             </div>
 
   
@@ -99,7 +95,6 @@ End Code
         <div class="row">
             <div class="col1 col-md-3">Price:</div>
             <div class="col2 col-md-5">750</div>
-
         </div>
 
      
@@ -107,19 +102,16 @@ End Code
         <div class="row">
             <div class="col1 col-md-3">Currency:</div>
             <div class="col2 col-md-4">USD</div>
-
         </div>
 
         <div class="row">
             <div class="col1 col-md-6">Card holder signature:___________________</div>
             <div class="col1 col-md-3">Issued by:</div>
             <div class="col2 col-md-3">Orgad M</div>
-
         </div>
 
 
         </div>
-
 </body>
 </html>
 
