@@ -26,9 +26,12 @@
             font-family:'Times New Roman', Times, serif;
             font-size:large;
         }
-        .text-center{
+        .center-block{
             font-family:'Times New Roman', Times, serif;
             font-size:45px;
+            display: table;
+            margin: auto;
+
         }
 
         .col1{
@@ -44,6 +47,35 @@
             color:red;
             font-size:28px;
         }
+        .img-responsive{
+            position: absolute;
+            right: 0%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            
+            
+            }
+        .topleft {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: red;
+            }
+        .center {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color:red
+            }
+
+        .row-grid + .row-grid {
+            margin-top: 20px;
+            }
+       
     </style>
 </head>
 <body>
@@ -53,52 +85,63 @@
             <div class="row">
                 <div class="col-md-2 "><button1 type="submit" class="btn btn-primary" >Send PDF</button1></div>
                 <div class="col-md-2 "><button2 type="submit" class="btn btn-primary">Switch Card</button2></div>
-                <div class="col-md-5"><label class="text-center" >Transaction Details</label> </div>
-                <div class="col-md-3 "><img src="http://www.amsalem.com/wp-content/uploads/2016/12/logo_268_81.png" class="img-fluid float-xs-right" /></div>                    
+                <div class="col-md-8 "><img src="http://www.amsalem.com/wp-content/uploads/2016/12/logo_268_81.png" class="img-fluid float-xs-right" /></div>                    
                 </div>
+        </form>
+    </div>
+    <div class="container ">
+        <form>
+            <div class="row row-grid">
+                <div class="col-md-12">
+                <div class="center-block">Transaction Details</div>
+                </div>  
+            </div>
         </form>
     </div>
 
 
 
     <div class="container ">
-            <div class="row">
+            <div class="row row-grid">
                 <div class="col1 col-md-3">To:</div>
                 <div class="col2 col-md-5">@ViewBag.Transaction.For</div>
             </div>
 
-            <div class="row">
+            <div class="row row-grid">
                 <div class="col1 col-md-8">We authorize credit card billing with the following details:</div>
             </div>
 
-            <div class="row">
+            <div class="row row-grid">
                 <div class="col1 col-md-3">For:</div>
                 <div class="col2 col-md-5">David Cohan, #TripNumber</div>
-                <div class="col-md-4 "><img src="https://www.bcu.com.au/images/Classic_front-(JUNE).png" class="img float-xs-right" width="350" height="380"/></div>
+                <div class="img-responsive"><img src="https://www.bcu.com.au/images/Classic_front-(JUNE).png" class="img float-xs-right" width="350" height="380"/>
+                <div class="topleft">pay to @ViewBag.Transaction.SupplierName only</div>
+                <div class="center">#Trip Number</div>
+                </div>
+                
             </div>
 
 
-            <div class="row">
+            <div class="row row-grid">
                 <div class="col1 col-md-3">For commodity:</div>
                 <div class="col2 col-md-6">Hotel Room, From 24.3.2017 To 27.3.2017</div>
             </div>
 
   
 
-        <div class="row">
+        <div class="row row-grid">
             <div class="col1 col-md-3">Price:</div>
             <div class="col2 col-md-5">750</div>
         </div>
 
      
 
-        <div class="row">
+        <div class="row row-grid">
             <div class="col1 col-md-3">Currency:</div>
             <div class="col2 col-md-4">USD</div>
         </div>
 
-        <div class="row">
-            <div class="col1 col-md-6">Card holder signature:___________________</div>
+        <div class="row row-grid">
             <div class="col1 col-md-3">Issued by:</div>
             <div class="col2 col-md-3">Orgad M</div>
         </div>

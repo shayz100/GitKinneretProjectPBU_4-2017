@@ -41,6 +41,7 @@ Namespace Controllers
             'ViewBag.TransactionId = id
             Dim transaction = New PaidByUsTransaction()
             transaction.OriginalCurrencyCode = "USD"
+            transaction.SupplierName = "expedia"
             transaction.For = "Shay zohar"
             transaction.Item = "LepTop"
             transaction.OriginalAmount = 2050

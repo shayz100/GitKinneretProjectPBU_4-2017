@@ -1,42 +1,65 @@
-﻿ @Code
-     ViewData("Title") = "View"
-     Dim trip = ViewBag.trip
-     Dim BackOfficeCompany = String.Empty
-     If (trip IsNot Nothing) Then
-         BackOfficeCompany = trip.AxCompany
-     Else
-         'BackOfficeCompany = DirectCast(ViewBag.user, ClassUsers).AxCompany
-         BackOfficeCompany = ViewBag.user.AxCompany
-     End If
+﻿@Code
+    ViewData("Title") = "View"
+    Dim trip = ViewBag.trip
+    Dim BackOfficeCompany = String.Empty
+    If (trip IsNot Nothing) Then
+        BackOfficeCompany = trip.AxCompany
+    Else
+        'BackOfficeCompany = DirectCast(ViewBag.user, ClassUsers).AxCompany
+        BackOfficeCompany = ViewBag.user.AxCompany
+    End If
 End Code
 
-ViewBag.
 
 <!doctype html>
 <html>
 <head>
 
     <title>Paid By Us Transactions Table</title>
-
+    <span>@BackOfficeCompany</span>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
-
+    <script src="~/Scripts/toastr.js"></script>
     <script>
         $(document).ready(function () {
+
+            $("#NewTransaction").validate({
+
+                rules: {
+                    tripNumber: {
+                        required: true
+                    }
+                },
+
+                submitHandler: function(form)
+                {
+                $.ajax({
+                    url: '/Transaction/Create',
+                    data: $("#NewTransaction").serialize(),
+                    type: 'POST',
+                    success: function (data) {
+                        if (data.Message == "Success")
+                        {
+                            id = 6;
+                            window.location = '/Transaction/Details/' + id;
+                        }
+                        else {
+                            toastr.error(data.Message);
+
+                        }
+
+
+                    }
+                });
+              }
+
+            });
 
                 $('#OriginalCurrencySelect').on('change', function (e) {
                 var optionSelected = $("option:selected", this);
                 var valueSelected = this.value;
                 $('#OriginalCurrencyAddon').text(valueSelected);
                 $('#OriginalAmountAddon').text(valueSelected);
-                
-                });
-
-                $('#BillingCurrencySelect').on('change', function (e) {
-                    var optionSelected = $("option:selected", this);
-                    var valueSelected = this.value;
-                    $('#BillingCurrencyAddon').text(valueSelected);
-                    $('#BillingAmountAddon').text(valueSelected);
-
 
                 });
 
@@ -45,14 +68,14 @@ ViewBag.
 
 </head>
 <body>
-    
+
     <div class="container">
-        <form style="margin-top:20px">
+        <form style="margin-top:20px" id="NewTransaction">
             <fieldset>
                 <legend class="text-center">Add New Transaction</legend>
 
                 <div class="row form-group">
-                    <div class="col-lg-3 col-lg-offset-3">
+                    <div class="form-group col-lg-3 col-lg-offset-3">
                         <label for="OriginalAmount">Original Amount</label>
                         <div class="input-group">
                             <div class="input-group-addon" id="OriginalAmountAddon">$</div>
@@ -60,7 +83,7 @@ ViewBag.
                         </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="form-group col-lg-3">
                         <label for="OriginalCurrencySelect">Original Currency Code</label>
                         <div class="input-group">
                             <div class="input-group-addon" id="OriginalCurrencyAddon">$</div>
@@ -76,32 +99,9 @@ ViewBag.
                 </div>
 
                 <div class="row form-group">
-                    <div class="col-lg-3 col-lg-offset-3">
-                        <label for="BillingAmount">Billing Amount</label>
-                        <div class="input-group">
-                            <div class="input-group-addon" id="BillingAmountAddon">$</div>
-                            <input type="text" class="form-control" id="BillingAmount" placeholder="Amount">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <label for="BillingCurrencySelect">Billing Currency Code</label>
-                        <div class="input-group">
-                            <div class="input-group-addon" id="BillingCurrencyAddon">$</div>
-                            <select class="form-control" id="BillingCurrencySelect">
-                                <option value="$">USD</option>
-                                <option value="€">EUR</option>
-                                <option value="£">GBP</option>
-                                <option value="₪">ILS</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row form-group">
                     <div class="col-lg-offset-3 col-lg-3">
-                        <label for="Status">Supplier Name</label>
-                        <input type="text" class="form-control" id="SupplierName" placeholder="Name">
+                        <label for="TripNumber">Trip Number</label>
+                        <input name="tripNumber" type="text" class="form-control" id="TripNumber" placeholder="Trip Number">
                     </div>
 
                     <div class="form-group col-lg-3">
@@ -121,43 +121,34 @@ ViewBag.
                         </select>
                     </div>
 
-                    <div class="form-group col-lg-3">
-                        <label for="Status">Trip Number</label>
-                        <input type="email" class="form-control" id="TripNumber" placeholder="Trip Number">
-                    </div>
+                    
                 </div>
 
                 <div class="row form-group">
+
                     <div class="form-group col-lg-offset-3 col-lg-3">
-                        <label for="CreatedBy">Created By</label>
-                        <input type="email" class="form-control" id="CreatedBy" placeholder="Created By" disabled>
+
+                        <label for="For">For</label>
+                        <input type="text" class="form-control" id="For" placeholder="For Who">
+
                     </div>
 
                     <div class="form-group col-lg-3">
-                        <label for="CreatedDate">Created Date</label>
-                        <input type="email" class="form-control" id="CreatedDate" placeholder="Created Date" disabled>
-                    </div>
-                </div>
 
-                <div class="row form-group">
-                    <div class="form-group col-lg-offset-3 col-lg-3">
-                        <label for="ModifiedBy">Modified By</label>
-                        <input type="email" class="form-control" id="ModifiedBy" placeholder="Modified By" disabled>
+                        <label for="Item">Item</label>
+                        <input type="text" class="form-control" id="Item" placeholder="Item">
+
                     </div>
 
-                    <div class="form-group col-lg-3">
-                        <label for="ModifiedDate">Modified Date</label>
-                        <input type="email" class="form-control" id="ModifiedDate" placeholder="Modified Date" disabled>
-                    </div>
                 </div>
 
                 <div class="row form-group">
                     <button type="submit" class="btn btn-success form-group col-lg-offset-3 col-lg-6">Get Card</button>
                 </div>
 
-    </fieldset>
+            </fieldset>
 
-</form>
+        </form>
     </div>
 </body>
 </html>
